@@ -11,8 +11,8 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - appdata:/var/www
-    command: ["/var/www/docker/app.sh"]
+      - appdata:/flask-app
+    command: cat /flask-app/app/database/dao.py
     networks:
       - mongo-network
     depends_on:

@@ -1,14 +1,14 @@
 FROM python:3.11-alpine3.18
 
-WORKDIR /var/www/
+RUN mkdir /flask-app
 
-ADD requirements.txt /var/www/requirements.txt
+WORKDIR /flask-app
+
+ADD requirements.txt /flask-app/requirements.txt
 
 RUN pip3 install -r requirements.txt
 
-COPY . /var/www/
-
-RUN chmod a+x /var/www/docker/app.sh
+COPY . /flask-app
 
 RUN pip3 install gunicorn
 
