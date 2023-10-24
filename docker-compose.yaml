@@ -1,16 +1,33 @@
 version: '3'
 
 services:
+
+  flask:
+    image: flask_image
+    build:
+      context: .
+    container_name: flask_app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - appdata:/var/www
+    command: ["/var/www/docker/app.sh"]
+    networks:
+      - mongo-network
+    depends_on:
+      - mongo-db
+
   mongo-express:
     image: mongo-express
     ports:
-      - 8081:8081
+      - "8081:8081"
     env_file:
       - .env-mongo
     links:
       - mongo-db
     networks:
-      - mongo-compose-network
+      - mongo-network
     restart: always
     depends_on:
       - mongo-db
@@ -25,12 +42,15 @@ services:
     volumes:
       - mongodb_data_container:/data/db
     networks:
-      - mongo-compose-network
+      - mongo-network
 
 
 networks:
-    mongo-compose-network:
+    mongo-network:
       driver: bridge
 
 volumes:
   mongodb_data_container:
+    driver: local
+  appdata:
+    driver: local

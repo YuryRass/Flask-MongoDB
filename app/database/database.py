@@ -2,7 +2,7 @@ from pymongo import MongoClient, errors
 from pymongo.results import UpdateResult
 from pymongo.collection import Collection
 
-from config import settings
+from app.config import settings
 
 
 class DataBase:

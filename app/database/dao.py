@@ -1,7 +1,7 @@
 import json
 from pymongo import errors
 from pymongo.results import UpdateResult
-from database.database import DataBase
+from app.database.database import DataBase
 
 
 class DataBaseDAO(DataBase):

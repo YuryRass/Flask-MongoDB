@@ -7,6 +7,9 @@ class Settings(BaseSettings):
     MONGO_USER: str
     MONGO_PASS: str
 
+    DB_NAME: str
+    COLLECTION_NAME: str
+
     model_config = SettingsConfigDict(env_file='.env')
 
 

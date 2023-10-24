@@ -1,0 +1,12 @@
+# VSCode
+__pycache__
+.vscode
+
+# Environments:
+/venv
+.env-*
+.env.*
+
+# Docker files:
+Dockerfile
+docker-compose.yaml

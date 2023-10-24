@@ -1,11 +1,12 @@
 from flask import Flask
 from flask import request
-from database.dao import DataBaseDAO
+from app.database.dao import DataBaseDAO
+from app.config import settings
 
 
 db = DataBaseDAO(
-    database_name='mafia',
-    collection_name='users'
+    database_name=settings.DB_NAME,
+    collection_name=settings.COLLECTION_NAME
 )
 
 
@@ -26,6 +27,3 @@ def insert_document():
 def change_value(key):
     return db.update_document(key, request.get_json(force=True))
 
-
-if __name__ == "__main__":
-    app.run(port=8080)
