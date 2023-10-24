@@ -10,3 +10,6 @@ __pycache__
 # Docker files:
 Dockerfile
 docker-compose.yaml
+
+# Git
+.gitignore
