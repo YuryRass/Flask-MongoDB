@@ -1,3 +1,4 @@
+"""Config data from file '.env'"""
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 

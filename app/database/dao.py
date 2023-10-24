@@ -1,3 +1,4 @@
+"""Data Access Object"""
 import json
 from pymongo import errors
 from pymongo.results import UpdateResult
@@ -6,6 +7,8 @@ from app.database.database import DataBase
 
 
 class DataBaseDAO(DataBase):
+    """CRUD operations to MongDB"""
+
     def create_document(self, document):
         status, msg = super().connect()
         if not status:

@@ -1,3 +1,4 @@
+"DataBase MongoDB"
 from pymongo import MongoClient, errors
 from pymongo.results import UpdateResult
 from pymongo.collection import Collection
@@ -8,7 +9,7 @@ from app.config import settings
 class DataBase:
     def __init__(
         self, database_name: str, collection_name: str
-    ) -> None:
+    ):
         self.db_name: str = database_name
         self.coll_name: str = collection_name
         self.coll: Collection | None = None
